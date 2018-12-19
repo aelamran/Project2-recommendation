@@ -11,7 +11,7 @@ Tabish Qureshi (tabish.qureshi@epfl.ch)
 **Instructions to Run:**
 <br />
 
-* Besire usual packages, spotlight package have to be installed using the following command line :
+* Spotlight package have to be installed using the following command line :
 ```
 conda install -c maciejkula -c pytorch spotlight=0.1.5
 ```
@@ -37,4 +37,4 @@ We have used the following libraries to implement our methods:
 * [Numpy](http://www.numpy.org/)
 * [Scipy.sparse](https://docs.scipy.org/doc/scipy/reference/sparse.html)
 * [Sklearn](http://scikit-learn.org/stable/)
-* [Spotlight]https://maciejkula.github.io/spotlight/
+* [Spotlight](https://maciejkula.github.io/spotlight/)
