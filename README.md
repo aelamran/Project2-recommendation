@@ -34,8 +34,8 @@ pip install pandas
 
 	* 'helpers_pj.py' contains all of the helpers provided to us for mainly SGD and ALS. 
 	* 'mf_spotlight_model.py' contains the all the useful implementations to run adam optimization algorithm using the __Spotlight__ library 
-	* 'als.py' contains the implementation and generates predictions for the Alternating Least Squares algorithm
-	* 'sgd.py' contains the implementation and generates predictions for the Stochastic Gradient Descent algorithm
+	* 'ALS.py' contains the implementation and generates predictions for the Alternating Least Squares algorithm
+	* 'SGD.py' contains the implementation and generates predictions for the Stochastic Gradient Descent algorithm
 	* 'run.py' contains the implementation of our main file that runs and make the submission of our model
 
 * And the folder `data` containing :
