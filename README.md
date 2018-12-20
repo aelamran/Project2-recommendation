@@ -37,6 +37,7 @@ pip install pandas
 	* 'ALS.py' contains the implementation and generates predictions for the Alternating Least Squares algorithm
 	* 'SGD.py' contains the implementation and generates predictions for the Stochastic Gradient Descent algorithm
 	* 'run.py' contains the implementation of our main file that runs and make the submission of our model
+	* 'report.pdf' contains our project report
 
 * And the folder `data` containing :
 	
