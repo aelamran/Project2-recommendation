@@ -1,11 +1,11 @@
-from MF_spotlight import *
+from mf_spotlight_model import *
 
 LOSS = 'regression'  # Our chosen loss
-K = 175  # Latent dimension of our matrix factorization
-NB_EPOCHS = 10  # Number of times we go through our training set
-BATCH_SIZE = 2400  # The batch size of our optimization algorithm
-L2 = 1e-8  # Our lambda ridge penalization
-GAMMA = 1e-3  # Our optimization learning rate
+K = 20  # Latent dimension of our matrix factorization
+NB_EPOCHS = 30  # Number of times we go through our training set
+BATCH_SIZE = 32  # The batch size of our optimization algorithm
+L2 = 1e-5  # Our lambda ridge penalization
+GAMMA = 1e-4  # Our optimization learning rate
 
 # Loading train data
 print("---------LOADING DATA-----------")
@@ -27,5 +27,5 @@ print("---------TRAINING THE MODEL-----------")
 model = create_model(loss=LOSS, k=K, number_epochs=NB_EPOCHS, batch_size=BATCH_SIZE, l2_penal=L2, gamma=GAMMA)
 model = train_model(model, input_interaction)
 print("---------CREATING THE SUBMISSION-----------")
-df_submission = create_output_df(y_predictions=predict_output(model, output_interaction), test_df=df_output)
+df_submission = create_output_df(y_predictions=predict_output(model, output_interaction), test_df=raw_data_output)
 create_submission_pd(df_submission)

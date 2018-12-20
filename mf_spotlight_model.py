@@ -8,10 +8,18 @@ from spotlight.cross_validation import random_train_test_split
 from spotlight.evaluation import rmse_score
 torch.set_default_tensor_type('torch.DoubleTensor')
 
-
-# Loading train data
-print("---------LOADING DATA-----------")
-raw_data = pd.read_csv('data/data_train.csv')
+"""
+    1) We create an Interaction object based on user_ids and movie_ids and their corresponding rating.
+    2) We give our Interaction object to the ExplicitFactorizationModel that performs a factorization based on 
+       pytorch layers.
+    3) 4 embedding layers are represented internally for our factorization model:
+        * (num_users x latent_dim) embedding layer to represent users
+        * (num_items x latent_dim) embedding layer to represent items
+        * (num_users x 1) embedding layer to represent user biases
+        * (num_items x 1) embedding layer to represent item biases
+    4) After this, we will only have to fit this ExplicitFactorizationModel and then make our predictions
+    
+"""
 
 
 def create_input_for_spotlight(user_id, movie_id, ratings):
@@ -23,6 +31,7 @@ def create_input_for_spotlight(user_id, movie_id, ratings):
     :return: Interaction Object (a useful object containing users, movies and ratings)
     """
     return Interactions(user_id, movie_id, ratings)
+
 
 def get_train_test_set(interaction):
     """
@@ -71,9 +80,9 @@ def create_output_df(y_predictions, test_df):
     :param test_df: our test dataframe in the submission form
     :return: pandas dataframe with our predictions
     """
-    test_df['rating'] = y_predictions
-    test_df['rating'] = test_df['rating'].apply(lambda x: 1 if x < 1 else x)
-    test_df['rating'] = test_df['rating'].apply(lambda x: 5 if x > 5 else x)
+    test_df['Prediction'] = y_predictions
+    test_df['Prediction'] = test_df['Prediction'].apply(lambda x: 1 if x < 1 else x)
+    test_df['Prediction'] = test_df['Prediction'].apply(lambda x: 5 if x > 5 else x)
     return test_df
 
 
@@ -84,6 +93,7 @@ def create_submission_pd(test_df):
     :return: csv of our final submission
     """
     test_df.to_csv('data/final_submission.csv', index=False)
+
 
 def preparing_data(raw_data):
     """
@@ -96,6 +106,7 @@ def preparing_data(raw_data):
     splitted_data['rating'] = raw_data['Prediction']
     splitted_data['rating'] = splitted_data['rating'].astype(float)
     return splitted_data
+
 
 def train_model(model, X):
     """

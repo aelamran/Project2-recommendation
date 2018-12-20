@@ -4,6 +4,15 @@ import scipy.sparse as sp
 import csv
 
 
+def pandas_lod_data(path):
+    """
+
+    :param path: the path of the data we want to load
+    :return: pandas dataframe of our data loaded
+    """
+    return pd.read_csv(path)
+
+
 def read_txt(path):
     """
 
@@ -121,7 +130,7 @@ def splitting(df, column='Id'):
 
     :param df: The dataframe we want to split using pandas (a different split than only numpy and scipy)
     :param column: the column we split ont
-    :return:
+    :return: dataframe containing user_ids, movie_ids and ratings
     """
     '''
         df : the dataframe to split
