@@ -45,8 +45,10 @@ pip install pandas
 	* 'data_test.csv'       : the test csv file provided by the challenge.
 	* 'final_submission.csv': our final submission giving our crowdAI score.
 
-** Final score **
+** Final score :**
+
 The final score obtained was 1.032, the submission id on CrowdAI is : 25099 and the username is : FatineB.
+
 **Libraries:**
 
 We have used the following libraries to implement our methods:
